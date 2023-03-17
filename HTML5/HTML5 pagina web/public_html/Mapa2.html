@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>a</title>
+        <meta charset="utf-8" />
+
+        <!-- Reference to the Bing Maps SDK -->
+        <script type='text/javascript'
+                src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap&key=[AhJBDJ-Zly5P0Ni41jNA76epxW4SfCUQqkMm7HLLpZMYgHa77olWulbgm-w6szOh]&setMkt=es-ES&setLang=es' 
+        async defer></script>
+
+        <script type='text/javascript'>
+            function GetMap()
+            {
+                var map = new Microsoft.Maps.Map('#myMap', {
+                    credentials: 'AhJBDJ-Zly5P0Ni41jNA76epxW4SfCUQqkMm7HLLpZMYgHa77olWulbgm-w6szOh',
+                    center: new Microsoft.Maps.Location(4.572893, -74.135159),
+                    mapTypeId: Microsoft.Maps.MapTypeId.road,
+                    zoom: 15
+                });
+
+                var center = map.getCenter();
+
+                //Create custom Pushpin
+                var pin = new Microsoft.Maps.Pushpin(center, {
+                    title: 'Parque Tunal',
+                    subTitle: 'Bogota Colombia',
+                    icon: 'imagenes/carro.png',
+                    anchor: new Microsoft.Maps.Point(12,39)
+                });
+
+                //Add the pushpin to the map
+                map.entities.push(pin);
+            }
+        </script>
+    </head>
+    <body>
+        <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+    </body>
+</html>
+
+

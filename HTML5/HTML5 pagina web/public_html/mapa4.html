@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+	<script type='text/javascript'>
+    var map;
+
+    function GetMap() {
+        map = new Microsoft.Maps.Map('#myMap', {
+            credentials: 'AhJBDJ-Zly5P0Ni41jNA76epxW4SfCUQqkMm7HLLpZMYgHa77olWulbgm-w6szOh',
+            center: new Microsoft.Maps.Location(4.572893, -74.135159)
+        }); 
+        var center = map.getCenter();
+
+        //Create an infobox that will render in the center of the map.
+        var infobox = new Microsoft.Maps.Infobox(center, {
+            title: 'Tunjuelito',
+            description: 'parque el tunal'
+        });
+
+        //Assign the infobox to a map instance.
+        infobox.setMap(map);
+    }
+    </script>
+    <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+</head>
+<body>
+    <div id="myMap" style="position:relative;width:600px;height:400px;"></div>
+</body>
